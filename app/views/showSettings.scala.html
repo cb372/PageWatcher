@@ -1,0 +1,22 @@
+@(settings: AllSettings)
+
+@import helper._
+@import MyBootstrapHelpers._
+
+@main("Settings") {
+    <h2>Email settings <a class="btn btn-primary" href="@routes.Settings.edit">Edit</a> </h2>
+    <table class="table">
+        <thead>
+            <tr><th>Field</th><th>Value</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>SMTP Host</td><td>@settings.email.smtpHost</td></tr>
+            <tr><td>SMTP Port</td><td>@settings.email.smtpPort</td></tr>
+            <tr><td>From address</td><td>@settings.email.fromAddress</td></tr>
+            <tr><td>Use TLS?</td><td>@settings.email.useTLS</td></tr>
+            <tr><td>SMTP Username</td><td>@settings.email.username</td></tr>
+            <tr><td>SMTP Password</td><td>*****</td></tr>
+        </tbody>
+    </table>
+
+}

@@ -1,0 +1,29 @@
+@(settingsForm: Form[AllSettings])
+
+@import helper._
+@import MyBootstrapHelpers._
+
+@main("Settings") {
+    
+    @form(action = routes.Settings.update, 'class -> "form-horizontal") {
+      <fieldset>
+        @inputText(settingsForm("email.smtpHost"), '_label -> "SMTP Host")
+
+        @inputText(settingsForm("email.smtpPort"), '_label -> "SMTP Port")
+
+        @inputText(settingsForm("email.fromAddress"), '_label -> "From address")
+
+        @checkbox(settingsForm("email.useTLS"), '_label -> "Use TLS")
+
+        @inputText(settingsForm("email.username"), '_label -> "SMTP Username")
+
+        @inputPassword(settingsForm("email.password"), '_label -> "SMTP Password")
+
+        <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <a class="btn" href="@routes.Settings.show">Cancel</a>
+            <button class="btn btn-info">Send a test email</button>
+        </div>
+      </fieldset>
+    }
+}
