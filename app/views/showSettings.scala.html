@@ -1,9 +1,11 @@
-@(settings: AllSettings)
+@(settings: AllSettings, sendEmailForm: Form[Email])(implicit flash: play.api.mvc.Flash)
 
 @import helper._
 @import MyBootstrapHelpers._
 
 @main("Settings") {
+    @flashes(flash)
+
     <h2>Email settings <a class="btn btn-primary" href="@routes.Settings.edit">Edit</a> </h2>
     <table class="table">
         <thead>
@@ -18,5 +20,24 @@
             <tr><td>SMTP Password</td><td>*****</td></tr>
         </tbody>
     </table>
+
+    <hr/>
+
+    <div class="span6">
+        <h3>Test email settings</h3>
+        @form(action = routes.Settings.testEmail, 'class -> "form-horizontal") {
+        <fieldset>
+            @inputText(sendEmailForm("toAddress"), '_label -> "To")
+
+            @inputText(sendEmailForm("subject"), '_label -> "Subject")
+
+            @inputText(sendEmailForm("body"), '_label -> "Body")
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+        </fieldset>
+        }
+    </div>
 
 }

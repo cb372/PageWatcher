@@ -1,0 +1,13 @@
+@(flash: play.api.mvc.Flash)
+
+    @flash.get("info").map { message =>
+    <div class="alert alert-info">
+        @message
+    </div>
+    }
+
+    @flash.get("error").map { message =>
+    <div class="alert alert-error">
+        @message
+    </div>
+}

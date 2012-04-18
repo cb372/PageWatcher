@@ -5,6 +5,7 @@
 CREATE TABLE settings (
     email_smtp_host varchar(255),
     email_smtp_port int,
+    email_from_address varchar(255),
     email_use_tls boolean,
     email_smtp_username varchar(255),
     email_smtp_password varchar(255)
